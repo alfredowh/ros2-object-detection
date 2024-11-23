@@ -1,7 +1,7 @@
 # Custom
 install/*
 build/*
-logs/*
+log/*
 
 # Environments
 .env
