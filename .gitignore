@@ -2,6 +2,8 @@
 install/*
 build/*
 log/*
+data/*
+application/src/data_generation/test/*
 
 # Environments
 .env
