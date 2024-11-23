@@ -67,14 +67,5 @@
         </constraints>
       </ode>
     </physics>
-
-    <!-- <model name='Dog'>
-      <include>
-        <uri>model://dog</uri>
-      </include>
-      <pose>-0.276098 -9.481944 0.023266 0 0 0</pose>
-      <static>true</static>
-    </model> -->
-
   </world>
 </sdf>
