@@ -2,7 +2,7 @@
 install/*
 build/*
 log/*
-data/*
+application/data/*
 application/src/data_generation/test/*
 
 # Environments

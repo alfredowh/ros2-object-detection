@@ -7,9 +7,7 @@ import os
 
 import rclpy
 from rclpy.node import Node
-from ament_index_python.packages import get_package_share_directory
 from sensor_msgs.msg import PointCloud2, PointField
-
 
 class PclSubscriber(Node):
 
@@ -23,7 +21,7 @@ class PclSubscriber(Node):
         self.subscription  
 
         self.i = 0
-        self.export_dir = os.path.join(os.path.join(os.path.abspath(os.getcwd())), 'data', 'pcl')
+        self.export_dir = os.path.join(os.path.join(os.path.abspath(os.getcwd())), 'application', 'data', 'pcl')
 
         if not os.path.exists(self.export_dir):
             os.makedirs(self.export_dir)

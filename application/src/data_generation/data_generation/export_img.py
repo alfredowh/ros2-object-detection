@@ -9,7 +9,6 @@ from ament_index_python.packages import get_package_share_directory
 import cv2
 import os
 
-
 bridge = CvBridge()
 
 class Img_exporter(Node):
@@ -19,7 +18,7 @@ class Img_exporter(Node):
 
         self.img = None
         self.i = 0
-        self.export_dir = os.path.join(os.path.join(os.path.abspath(os.getcwd())), 'data', 'img')
+        self.export_dir = os.path.join(os.path.join(os.path.abspath(os.getcwd())), 'application', 'data', 'img')
 
         if not os.path.exists(self.export_dir):
             os.makedirs(self.export_dir)
