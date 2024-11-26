@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'export_pcl = data_generation.export_pcl:main',
             'export_img = data_generation.export_img:main',
+            'waypoints_driver = data_generation.waypoints_driver:main',
         ],
     },
 )
