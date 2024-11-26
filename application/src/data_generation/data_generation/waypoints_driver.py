@@ -36,8 +36,8 @@ class WaypointDriver(Node):
         ]
         self.current_waypoint_index = 0
         self.robot_pose = {'x': 0.0, 'y': 0.0, 'yaw': 0.0}
-        self.velocity = 1.0  # m/s
-        self.angular_gain = 2.0
+        self.velocity = 0.5 # m/s
+        self.angular_gain = 1.0
 
     def pose_callback(self, msg):
         self.robot_pose['x'] = msg.pose.pose.position.x
