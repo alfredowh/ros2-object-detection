@@ -22,7 +22,6 @@ ros2-object-detection
  |  |-params
  |  |-rviz
  |  |-src
- |  |-src
  |  |-urdf
  |  |-worlds
 ```
