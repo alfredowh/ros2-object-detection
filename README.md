@@ -13,7 +13,7 @@ source install/local_setup.bash        # Sourcing the packages
 
 The folder structure of the input data should look like this:
 
-``` bash
+```bash
 ./
 ├── application/          
 │   ├── data/                        # Generated images 
