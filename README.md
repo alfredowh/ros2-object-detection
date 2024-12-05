@@ -26,7 +26,7 @@ The folder structure of the input data should look like this:
     ├── models/                      # Description files for all necessary models
     ├── params/                      # Parameter files for gazebo bridge etc.
     ├── rviz/                        # Config files for rviz2 visualization
-    ├── src/                         # Source files
+    ├── src/                         
     ├── urdf/                        # Description files for mobile robots
     └── worlds/                      # World description
 ```
