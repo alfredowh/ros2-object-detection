@@ -1,4 +1,4 @@
-# ros2-object-detection
+# [Work In Progress] Object Detection using ROS2 and Gazebo
 
 Repository for object detection project using ROS2 Humble and Gazebo Fortress.
 
