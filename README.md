@@ -13,24 +13,23 @@ source install/local_setup.bash        # Sourcing the packages
 
 The folder structure of the input data should look like this:
 
-```bash
+``` bash
 ./
 ├── application/          
 │   ├── data/                        # Generated images 
 │   └── src/
 │       ├── data_generation          # Package for image generation from gazebo
 │       └── object_detection         # Package for YOLOv7 object detector
-├── turtlebot_gazebo/                # Package for gazebo simulation
-│   ├── include/ 
-│   ├── launch/                      # Launch files for starting simulation
-│   ├── models/                      # Description files for all necessary models
-│   ├── params/                      # Parameter files for gazebo bridge etc.
-│   ├── rviz/                        # Config files for rviz2 visualization
-│   ├── src/                         # Source files
-│   ├── urdf/                        # Description files for mobile robots
-│   └── worlds/                      # World description
-...
-
+└── turtlebot_gazebo/                # Package for gazebo simulation
+    ├── include/ 
+    ├── launch/                      # Launch files for starting simulation
+    ├── models/                      # Description files for all necessary models
+    ├── params/                      # Parameter files for gazebo bridge etc.
+    ├── rviz/                        # Config files for rviz2 visualization
+    ├── src/                         # Source files
+    ├── urdf/                        # Description files for mobile robots
+    └── worlds/                      # World description
+```
 ## Acknowledgements
 
 The Gazebo simulation implementations in this project utilizes significant portions of the implementation from the [Turtlebot3 simulation repository](https://github.com/azeey/turtlebot3_simulations/tree/new_gazebo) by [Addisu Z. Taddese](https://github.com/azeey) and contributors. 
