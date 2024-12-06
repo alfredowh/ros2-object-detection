@@ -9,6 +9,14 @@ colcon build                           # Build the project
 source install/local_setup.bash        # Sourcing the packages
 ```
 
+## Packages
+### Data Generation Package
+This package is used to generate images from Gazebo simulation. It includes the function to drive the mobile robots following particular waypoints. With these waypoints on static environment (with same objects and same positions), identical driving scenarios on different environment can be achieved. Thereby, data annotation efforts can be reduced. 
+The images can be annotated in semi-automated way using visual foundation models or large-scale zero-shot object detector, e.g. [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO). This model is used by [Roboflow](https://roboflow.com/annotate) for automating data annotaion. Additionaly, [Roboflow](https://roboflow.com/annotate) provides annotation tools, which facilitates manual annotation and labels exports to different format.
+
+### Object Detection Package [TODO]
+This package utilizes YOLOv7 model to detect the objects in real-time while using the Gazebi simulation.
+
 ## Folder Structure
 
 The folder structure of the input data should look like this:
