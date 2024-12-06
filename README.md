@@ -2,13 +2,6 @@
 
 Repository for object detection project using ROS2 Humble and Gazebo Fortress.
 
-## Development
-
-``` bash
-colcon build                           # Build the project
-source install/local_setup.bash        # Sourcing the packages
-```
-
 ## Packages
 ### Data Generation Package
 This package is used to generate images from Gazebo simulation. It includes the function to drive the mobile robots following particular waypoints. With these waypoints on static environment (with same objects and same positions), identical driving scenarios on different environment can be achieved. Thereby, data annotation efforts can be reduced. 
@@ -39,6 +32,14 @@ The folder structure of the input data should look like this:
     ├── urdf/                        # Description files for mobile robots
     └── worlds/                      # World description
 ```
+
+## Development
+
+``` bash
+colcon build                           # Build the project
+source install/local_setup.bash        # Sourcing the packages
+```
+
 ## Acknowledgements
 
 The Gazebo simulation implementations in this project utilizes significant portions of the implementation from the [Turtlebot3 simulation repository](https://github.com/azeey/turtlebot3_simulations/tree/new_gazebo) by [Addisu Z. Taddese](https://github.com/azeey) and contributors. 
