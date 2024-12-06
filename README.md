@@ -36,6 +36,8 @@ The folder structure of the input data should look like this:
 ## Development
 
 ``` bash
+Ubuntu 24.04.1 LTS
+
 colcon build                           # Build the project
 source install/local_setup.bash        # Sourcing the packages
 ```
