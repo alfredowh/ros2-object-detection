@@ -36,7 +36,11 @@
     </include>
 
     <scene>
-      <shadows>false</shadows>
+      <ambient>0.5 0.5 0.5 1.0</ambient>
+      <background>0.5 0.5 0.5 1.0</background>
+      <grid>true</grid>
+      <shadow>false</shadow>
+      <!-- <sky></sky> -->
     </scene>
 
     <gui fullscreen='0'>
@@ -67,5 +71,13 @@
         </constraints>
       </ode>
     </physics>
+
+    <model name='Hatchback'>
+      <include>
+        <uri>model://hatchback_blue</uri>
+      </include>
+      <pose>-0.276098 -9.481944 0.023266 0 0 0</pose>
+      <static>true</static>
+    </model>
   </world>
 </sdf>
