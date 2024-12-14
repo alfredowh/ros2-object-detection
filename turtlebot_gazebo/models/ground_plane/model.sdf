@@ -31,10 +31,11 @@
                     <ambient>0.3 0.3 0.3 1</ambient>
                     <diffuse>0.7 0.7 0.7 1</diffuse>
                     <specular>0.01 0.01 0.01 1</specular>
+                    <!-- Add texture to the groundplane -->
                     <pbr>
-                    <metal>
-                        <albedo_map>model://ground_plane/textures/asphalt_1.jpeg</albedo_map>
-                    </metal>
+                        <metal>
+                            <albedo_map>model://ground_plane/textures/asphalt_1.jpeg</albedo_map>
+                        </metal>
                     </pbr>
                 </material>
             </visual>

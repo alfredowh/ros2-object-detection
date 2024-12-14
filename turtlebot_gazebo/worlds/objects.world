@@ -23,26 +23,17 @@
       name="gz::sim::systems::Imu">
     </plugin>
 
-
-    <!-- <model name='Ground Plane'>
-      <include>
-        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
-      </include>
-      <material>
-        <pbr>
-          <metal>
-            <albedo_map>model://textures/tarmac.png</albedo_map>
-          </metal>
-        </pbr>
-      </material>
-      <static>true</static>
-    </model> -->
-
     <include>
       <uri>
         model://ground_plane
       </uri>
     </include>
+
+    <!-- <include>
+      <uri>
+        model://Sky
+      </uri>
+    </include> -->
 
     <include>
       <uri>
