@@ -7,6 +7,7 @@ from std_msgs.msg import Bool
 from cv_bridge import CvBridge
 from ament_index_python.packages import get_package_share_directory
 from rclpy.task import Future
+import time
 
 
 import cv2
@@ -30,7 +31,12 @@ class Img_exporter(Node):
             os.makedirs(self.export_dir)
 
         timer_period = 2  # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback)
+        # self.timer = self.create_timer(timer_period, self.timer_callback)
+        
+        self.export_done = Bool()
+        self.export_done.data = True
+        self.export_done_publisher = self.create_publisher(Bool, '/export_done', 10)
+        self.export_trigger_subscriber = self.create_subscription(Bool, '/export_trigger', self.export_trigger_callback, 10)
 
         self.subscription = self.create_subscription(
             Image,
@@ -47,6 +53,19 @@ class Img_exporter(Node):
             self.driving_done_callback,
             10)
         self.driving_done_subscription 
+    
+    def export_trigger_callback(self, msg):
+        if msg.data:    # Export trigger message
+            self.export_done.data = False
+            if self.img is not None:
+                time.sleep(1)
+                cv2.imwrite(os.path.join(self.export_dir, '00'+str(self.i)+'.jpeg'), self.img)
+                self.i += 1
+                time.sleep(1)
+                self.export_done.data = True
+            else: 
+                self.get_logger().info("Image not available!")
+            self.export_done_publisher.publish(self.export_done)
 
     def camera_callback(self, data):
         self.img = bridge.imgmsg_to_cv2(data, "bgr8")
@@ -54,10 +73,13 @@ class Img_exporter(Node):
     def driving_done_callback(self, data):
         self.done_future.set_result(data.data) 
 
-    def timer_callback(self):
-        if self.img is not None:
-            cv2.imwrite(os.path.join(self.export_dir, '00'+str(self.i)+'.jpeg'), self.img)
-            self.i += 1
+    # def timer_callback(self):
+    #     if self.img is not None:
+    #         cv2.imwrite(os.path.join(self.export_dir, '00'+str(self.i)+'.jpeg'), self.img)
+    #         self.i += 1
+    #         self.export_done.data = True
+    #         time.sleep(2)
+    #     self.export_done_publisher.publish(self.export_done)
 
 def main(args=None):
     rclpy.init(args=None)
