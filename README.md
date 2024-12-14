@@ -8,8 +8,6 @@ This package is used to generate images from Gazebo simulation. It includes the 
 
 The images can be annotated in semi-automated way using visual foundation models or large-scale zero-shot object detector, e.g. [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO). This model is used by [Roboflow](https://roboflow.com/annotate) for automating data annotaion. Additionaly, [Roboflow](https://roboflow.com/annotate) provides annotation tools, which facilitates manual annotation and labels exports to different format.
 
-https://github.com/user-attachments/assets/eac1e242-f1b6-40f9-882d-a0d7f4a1298a
-
 ### Object Detection Package [TODO]
 This package utilizes YOLOv7 model to detect the objects in real-time while using the Gazebo simulation.
 
@@ -43,6 +41,9 @@ Ubuntu 24.04.1 LTS
 colcon build                           # Build the project
 source install/local_setup.bash        # Sourcing the packages
 ```
+
+## Data Generation
+https://github.com/user-attachments/assets/eac1e242-f1b6-40f9-882d-a0d7f4a1298a
 
 ## Acknowledgements
 
