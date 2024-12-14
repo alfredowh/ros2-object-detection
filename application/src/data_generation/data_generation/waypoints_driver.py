@@ -23,6 +23,16 @@ class WaypointDriver(Node):
         # Loop rate for driving controll 
         self.timer = self.create_timer(0.1, self.timer_callback)
 
+        # Data export timer
+        self.export_timer = self.create_timer(5, self.export_timer_callback)
+
+        # Export handling
+        self.export = Bool()
+        self.export.data = False
+        self.export_done = True
+        self.export_trigger_publisher = self.create_publisher(Bool, '/export_trigger', 10)
+        self.export_done_subcriber = self.create_subscription(Bool, '/export_done', self.export_done_callback, 10)
+
         # Initialize indicating task completion
         self.done_future = Future()
         
@@ -46,8 +56,17 @@ class WaypointDriver(Node):
 
         self.current_waypoint_index = 0
         self.robot_pose = {'x': 0.0, 'y': 0.0, 'yaw': 0.0}
-        self.velocity = .8 # m/s
-        self.angular_gain = 1.0
+        self.velocity = .3 # m/s
+        self.angular_gain = .7
+
+    def export_timer_callback(self):
+        self.export.data = True
+        self.export_trigger_publisher.publish(self.export)
+    
+    def export_done_callback(self, msg):
+        self.export_done = msg.data
+        if self.export_done:
+            self.export.data = False
 
     def pose_callback(self, msg):
         x_pose_init = self.get_parameter('x_pose_init').get_parameter_value().double_value
@@ -58,7 +77,6 @@ class WaypointDriver(Node):
         # DEBUG
         # self.get_logger().info(f"{x_pose_init}, {y_pose_init}")
 
-        
         orientation_q = msg.pose.pose.orientation
         _, _, yaw = euler_from_quaternion([
             orientation_q.x,
@@ -68,14 +86,21 @@ class WaypointDriver(Node):
         ])
         self.robot_pose['yaw'] = yaw
 
-    def timer_callback(self):
-        if self.current_waypoint_index >= len(self.waypoints):
-            self.get_logger().info('Done!')
-            twist = Twist()
-            twist.linear.x = 0.0
-            twist.angular.z = 0.0
-            self.controll_publisher.publish(twist)
+    def stop(self):
+        twist = Twist()
+        twist.linear.x = 0.0
+        twist.angular.z = 0.0
+        self.controll_publisher.publish(twist)
 
+    def timer_callback(self):
+        if self.export.data:
+            self.get_logger().info('Exporting...')
+            self.stop()
+            return
+
+        elif self.current_waypoint_index >= len(self.waypoints):
+            self.get_logger().info('Done!')
+            self.stop()
             self.done_future.set_result(True) 
 
             driving_done = Bool()
