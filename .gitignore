@@ -4,6 +4,9 @@ build/*
 log/*
 application/data/*
 application/src/data_generation/test/*
+runs/*
+**/__pycache__/*
+kaggle/*
 
 # Environments
 .env
@@ -16,3 +19,4 @@ venv.bak/
 
 # Visual Studio Code
 .vscode
+
