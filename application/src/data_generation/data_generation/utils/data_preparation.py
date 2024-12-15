@@ -52,14 +52,13 @@ def add_rain(image: np.ndarray, brightness_reduction: int = 50) -> np.ndarray:
 
     return rain_image
 
-def add_fog(image:str, fog_intensity:float=0.5):
 
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  
-    
+def add_fog(image: str, fog_intensity: float = 0.5):
+
     # Create a white layer
     fog_layer = np.full_like(image, 150, dtype=np.uint8)
     foggy_image = cv2.addWeighted(image, 1 - fog_intensity, fog_layer, fog_intensity, 0)
-    
+
     return foggy_image
 
 
