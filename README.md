@@ -45,6 +45,12 @@ source install/local_setup.bash        # Sourcing the packages
 ```
 
 ## Data Generation
+
+Objects:
+- Car
+- Pedestrian
+- Truck
+  
 https://github.com/user-attachments/assets/eac1e242-f1b6-40f9-882d-a0d7f4a1298a
 
 <br><br>
